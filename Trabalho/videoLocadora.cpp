@@ -7,14 +7,14 @@
 using namespace std;
 
 
-struct cadastroCliente { //struct esta as variaveis dos dados do cliente
+struct cadastroCliente { 
 
     int id;
     string nome;
     string idade;
 
 };
-struct cadastroAcervo { //struct esta as variaveis dos dados do Acervo
+struct cadastroAcervo {
     int id;
     string nome;
     int preco;
@@ -64,23 +64,29 @@ void cadastrarAcervo(){
     cin >> acervo.preco;
     cout << "Informe a Quantidade de Estoque : ";
     cin >> acervo.qtde_estoque;
+    listaAcervo.push_back(acervo);
 
 }
 
-
 int main ()
 {
-    string verificadorCliente;//
+    string verificadorCliente;
+    string verificadorAcervo;
     int opcao = 0;
 
 
     do{
-        cout << "Deseja cadastrar algum Cliente?: ";
-        cin >> verificador;
+        cout << "Deseja cadastrar algum Cliente? = 1 ";
+        cout << "Deseja Excluir algum Cliente? = 1 ";
+        cout << "Deseja Visualizar algum Cliente? = 1 ";
+        cin >> opcao;
         cout << "" << endl;
         if(verificadorCliente == "1"){
             cadastrarCliente();
             opcao++;
+        }else if(verificadorAcervo == "2"){
+          cadastroAcervo();
+          opcao++;
         }
     } while (verificador != 0);
 
