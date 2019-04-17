@@ -8,28 +8,25 @@ using namespace std;
 
 
 struct cadastroCliente { //struct esta as variaveis dos dados do cliente
+
     int id;
     string nome;
-    string cpf;
-    string rg;
-    int qtde_comprado;
+    string idade;
+
 };
 struct cadastroAcervo { //struct esta as variaveis dos dados do Acervo
     int id;
     string nome;
-    string cpf;
-    string rg;
-    string endereco;
-    string telefone;
-    int qtde;
+    int preco;
+    int qtde_estoque;
 };
 
+// está lista armazena os dados
+list<cadastroCliente> listaCliente;
+list<cadastroAcervo> listaAcervo:
 
 
-list<cadastroCliente> listainformacoes; // está lista armazena os dados do produto
-
-
-void mostrarResultado(list<prod>& l){
+void imprimirCliente(list<prod>& l){
 
   list<prod>::iterator i;
 
@@ -38,47 +35,56 @@ void mostrarResultado(list<prod>& l){
   for(i = l.begin(); i != l.end(); i++)
     cout << i->id << " - "
     << i->nome << " - "
-    << i->cpf << " - "
-    << i->rg << " - "
-    << i->qtde_comprado << " - "
-    
+    << i->idade << " - "
     << endl;
 
-
 }
 
-void cadastrar(){
+void cadastrarCliene(){
     cadastroCliente cliente;
 
-    cout << "insira o codigo do produto: ";
-    cin >> produto.id;
-    cout << "insira o nome do produto: ";
-    cin >> produto.nome;
-    cout << "insira o preço do produto: ";
-    cin >> produto.preco;
-    cout << "insira a quantidade do produto: ";
-    cin >> produto.qtde;
+    cout << "Informe o codigo do Filme : ";
+    cin >> cliente.id;
+    cout << "Infomer o nome do Cliente : ";
+    cin >> cliente.nome;
+    cout << "Informe o CPF do Cliente: ";
+    cin >> cliente.idade;
     cout << "";
-    listainformacoes.push_back(produto);
+    listaCliente.push_back(cliente);
 }
+
+void cadastrarAcervo(){
+    cadastroAcervo acervo;
+
+    cout << "Informe o codigo do Filme : ";
+    cin >> acervo.id;
+    cout << "Informe o nome do filme : ";
+    cin >> acervo.nome;
+    cout << "Informe o Preço do filme : ";
+    cin >> acervo.preco;
+    cout << "Informe a Quantidade de Estoque : ";
+    cin >> acervo.qtde_estoque;
+
+}
+
 
 int main ()
 {
-    string verificador;//
-    int cont = 0;
+    string verificadorCliente;//
+    int opcao = 0;
+
 
     do{
         cout << "Deseja cadastrar algum Cliente?: ";
         cin >> verificador;
         cout << "" << endl;
-        if(verificador == "sim"){
-            cadastrar();
-            cont++;
+        if(verificadorCliente == "1"){
+            cadastrarCliente();
+            opcao++;
         }
-    } while (verificador == "sim");
+    } while (verificador != 0);
 
-    if(cont > 0)
-        imprimir(listainformacoes);
+
 
     cout << "Saindo ....";
 
